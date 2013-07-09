@@ -1,4 +1,11 @@
 //=================
+// Compass
+//=================
+
+@import "compass/css3";
+@import "compass/utilities";
+
+//=================
 // Base Styles
 //=================
 
@@ -6,6 +13,7 @@
 @import "base/palette";
 @import "base/fonts";
 @import "base/mymixins";
+@import "base/typography";
 
 //=================
 // Vendor Styles
