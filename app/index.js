@@ -43,6 +43,8 @@ StarterGenerator.prototype.app = function app() {
   this.mkdir('js/plugins');
   this.mkdir('js/vendor');
   this.mkdir('sass');
+  this.mkdir('sass/vendor');
+  this.mkdir('sass/vendor/foundation');
   this.mkdir('sass/base');
   this.mkdir('sass/modules');
   this.mkdir('styles');
@@ -55,6 +57,7 @@ StarterGenerator.prototype.app = function app() {
   this.template('sass/base/_mymixins.scss', 'sass/base/_mymixins.scss');
   this.template('sass/base/_palette.scss', 'sass/base/_palette.scss');
   this.template('sass/main.scss', 'sass/main.scss');
+  this.template('sass/vendor/_foundation.scss', 'sass/vendor/_foundation.scss');
 
   //Root files
   this.template('index.html', 'index.html');

@@ -72,6 +72,31 @@ module.exports = function(grunt) {
             cwd: 'components/normalize.scss/',
             src: ['_normalize.scss'],
             dest: 'sass/base/'
+          },
+          //Foundation
+          {
+            expand: true,
+            cwd: 'components/foundation/scss/foundation/',
+            src: ['_variables.scss'],
+            dest: 'sass/vendor/foundation/'
+          },
+          {
+            expand: true,
+            cwd: 'components/foundation/scss/foundation/components/',
+            src: ['_global.scss'],
+            dest: 'sass/vendor/foundation/components/'
+          },
+          {
+            expand: true,
+            cwd: 'components/foundation/scss/foundation/components/',
+            src: ['_grid.scss'],
+            dest: 'sass/vendor/foundation/components/'
+          },
+          {
+            expand: true,
+            cwd: 'components/foundation/scss/foundation/components/',
+            src: ['_visibility.scss'],
+            dest: 'sass/vendor/foundation/components/'
           }
         ]
       },
