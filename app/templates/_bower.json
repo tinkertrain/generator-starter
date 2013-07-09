@@ -4,6 +4,7 @@
   "dependencies": {
     "jquery": "latest",
     "modernizr": "latest",
-    "normalize.scss": "latest"
+    "normalize.scss": "latest",
+    "foundation": "latest"
   }
 }
