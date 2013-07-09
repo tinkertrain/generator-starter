@@ -14,6 +14,7 @@ The scaffolding includes the following:
 - Uglify
 - Concat
 - Livereload
+- Zurb Foundation's grid system
 
 Install it running
 
@@ -42,6 +43,15 @@ The directory structure would then be:
 				  _normalize.scss
 				  _mymixins.scss
 				  _palette.scss
+			|___vendor
+				|__foundation
+					|__components
+						  _grid.scss
+						  _global.scss
+						  _visibility.scss
+				_variables.scss
+			_foundation.scss
+					
 			|___modules
 			main.scss //this imports the files in the base folder
 		|___js
