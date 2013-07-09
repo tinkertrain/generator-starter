@@ -105,22 +105,27 @@ module.exports = function(grunt) {
     watch: {
       /* watch to see if the sass files are changed, compile and add prefixes */
       styles: {
-        files: ['sass/**/*.scss', 'styles/main.css'],
+        files: ['sass/**/*.{scss,sass}'],
         tasks: ['compass:dev', 'autoprefixer']
       },
 
+      // autoprefix: {
+      //   files: ['styles/main.css'],
+      //   tasks: ['autoprefixer']
+      // },
+
       /* watch and see if our javascript files change, or new packages are installed */
       js: {
-        files: ['js/main.js', 'components/**/*.js'],
+        files: ['js/**/*.js', '!js/main.js','js/main.js'],
         tasks: ['uglify:dist', 'concat:dist']
       },
 
       /* watch our files for change, reload */
       livereload: {
-        files: ['*.html', 'styles/*.css', 'images/*', 'js/main.min.js'],
+        files: ['*.html', '*.php', 'styles/*.css', 'images/**/*.{png,jpg,jpeg,gif,webp,svg}', 'js/main.min.js'],
         options: {
           livereload: true
-        }
+        },
       },
     },
 
@@ -128,5 +133,5 @@ module.exports = function(grunt) {
 
   //Task list
   grunt.registerTask('initiate', ['copy', 'uglify:initiate']);
-  grunt.registerTask('default', 'watch');
+  grunt.registerTask('default', ['watch']);
 };
