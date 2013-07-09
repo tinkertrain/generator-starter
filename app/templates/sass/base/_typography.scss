@@ -1,3 +1,7 @@
+$base-font-size           : 16px;         // Sets the browser default size. Shouldn't need to change this.
+$base-line-height         : 8px;          // Baseline grid. Set to a sensible, small size.
+$round-to-nearest-half-line     : false;
+
 h1 {
   @include adjust-font-size-to(36px);
   margin: 0 0 rhythm(3, 36px) 0;              // 3 lines below, based on font size
