@@ -15,7 +15,11 @@ The scaffolding includes the following:
 - Concat
 - Livereload
 
-To use simply type in the command line:
+Install it running
+
+	~ npm install generator-starter
+
+And then to use simply type in the command line:
 
     ~ yo starter
 
