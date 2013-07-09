@@ -115,14 +115,19 @@ module.exports = function(grunt) {
       // },
 
       /* watch and see if our javascript files change, or new packages are installed */
-      js: {
-        files: ['js/**/*.js', '!js/main.js','js/main.js'],
-        tasks: ['uglify:dist', 'concat:dist']
+      concatenate: {
+        files: ['js/plugins/*.js', 'js/main.js'],
+        tasks: ['concat:dist']
+      },
+
+      uglifyit: {
+        files: ['js/main.js'],
+        tasks: ['uglify:dist']
       },
 
       /* watch our files for change, reload */
       livereload: {
-        files: ['*.html', '*.php', 'styles/*.css', 'images/**/*.{png,jpg,jpeg,gif,webp,svg}', 'js/main.min.js'],
+        files: ['*.html', '*.php', 'styles/*.css', 'images/**/*.{png,jpg,jpeg,gif,webp,svg}', '*.js'],
         options: {
           livereload: true
         },
