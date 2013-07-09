@@ -1,0 +1,6 @@
+.sass-cache
+node_modules
+components
+.editorconfig
+.jshintrc
+config.json

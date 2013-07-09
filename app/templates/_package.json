@@ -1,0 +1,16 @@
+{
+  "name": "<%= _.slugify(websiteName) %>",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "bower": "~0.9.2",
+    "matchdep": "~0.1.2",
+    "grunt-contrib-compass": "~0.2.0",
+    "grunt-contrib-watch": "~0.4.3",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-autoprefixer": "~0.1.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1"
+  }
+}
