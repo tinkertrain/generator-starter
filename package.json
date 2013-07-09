@@ -1,15 +1,20 @@
 {
   "name": "generator-starter",
   "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "description": "A website starter generator for Yeoman",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "kickstart",
+    "website",
+    "compass",
+    "livereload",
+    "html5boilerplate"
   ],
   "homepage": "https://github.com/tinkertrain/generator-starter",
   "bugs": "https://github.com/tinkertrain/generator-starter/issues",
   "author": {
-    "name": "",
-    "email": "",
+    "name": "Juan Pablo Lomeli Diaz",
+    "email": "juanpablo@thetinkertrain.com",
     "url": "https://github.com/tinkertrain"
   },
   "main": "app/index.js",
