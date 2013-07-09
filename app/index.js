@@ -25,7 +25,7 @@ StarterGenerator.prototype.askFor = function askFor() {
   var prompts = [
     {
       name: 'websiteName',
-      message: 'What do you want to call your Web site?'
+      message: 'What do you want to call your project?'
     }
   ];
 
