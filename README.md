@@ -28,7 +28,7 @@ After yeoman finishes scaffolding, run:
 	
 	~ grunt initiate
 
-This will copy jquery.min.js and uglify modernizer.js to the js/vendor directory.
+This will copy jquery.min.js, modernizer.js and the foundation grid system files to their respective directories.
 
 The directory structure would then be:
 
