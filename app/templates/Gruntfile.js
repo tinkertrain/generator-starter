@@ -43,7 +43,7 @@ module.exports = function (grunt) {
 				files:
 				[
 					{
-						src: ['js/main.js'],
+						src: ['js/main.min.js'],
 						dest: 'js/main.min.js'
 					}
 				]
@@ -125,14 +125,6 @@ module.exports = function (grunt) {
 					},
 				},
 
-				uglifyit: {
-					files: ['js/main.js'],
-					tasks: ['uglify:dist'],
-					options: {
-						livereload: true,
-					},
-				},
-
 				/* watch our files for change, reload */
 				livereload: {
 					files: ['*.html', '*.php', 'styles/*.css', 'images/**/*.{png,jpg,jpeg,gif,webp,svg}', '*.js'],
@@ -146,6 +138,6 @@ module.exports = function (grunt) {
 
 	//Task list
 	grunt.registerTask('initiate', ['copy', 'uglify:initiate']);
-	grunt.registerTask('lint', ['jshint']);
+	grunt.registerTask('build', ['uglify:dist']);
 	grunt.registerTask('default', ['watch']);
 };
