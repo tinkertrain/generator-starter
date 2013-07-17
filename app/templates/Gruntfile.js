@@ -15,6 +15,14 @@ module.exports = function (grunt) {
 					force: true
 				}
 			},
+			dist: {
+				options: {
+					outputStyle: 'compressed',
+					environment: 'production',
+					noLineComments: true,
+					force: true
+				}
+			},
 		},
 
 		autoprefixer: {
@@ -138,6 +146,6 @@ module.exports = function (grunt) {
 
 	//Task list
 	grunt.registerTask('initiate', ['copy', 'uglify:initiate']);
-	grunt.registerTask('build', ['uglify:dist']);
+	grunt.registerTask('build', ['uglify:dist', 'compass:dist']);
 	grunt.registerTask('default', ['watch']);
 };
