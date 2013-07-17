@@ -104,39 +104,45 @@ module.exports = function (grunt) {
 		},
 
 		watch: {
-			/* watch to see if the sass files are changed, compile and add prefixes */
-			styles: {
-				files: ['sass/**/*.{scss,sass}'],
-				tasks: ['compass:dev', 'autoprefixer']
-			},
+				/* watch to see if the sass files are changed, compile and add prefixes */
+				styles: {
+					files: ['sass/**/*.{scss,sass}'],
+					tasks: ['compass:dev', 'autoprefixer']
+				},
 
-			// autoprefix: {
-			//   files: ['styles/main.css'],
-			//   tasks: ['autoprefixer']
-			// },
+				// autoprefix: {
+				//   files: ['styles/main.css'],
+				//   tasks: ['autoprefixer']
+				// },
 
-			/* watch and see if our javascript files change, or new packages are installed */
+				/* watch and see if our javascript files change, or new packages are installed */
 
-			concatenate: {
-				files: ['js/plugins/*.js', 'js/main.js'],
-				tasks: ['concat:dist']
-			},
+				concatenate: {
+					files: ['js/plugins/*.js', 'js/main.js'],
+					tasks: ['concat:dist'],
+					options: {
+						livereload: true,
+					},
+				},
 
-			uglifyit: {
-				files: ['js/main.js'],
-				tasks: ['uglify:dist']
-			},
+				uglifyit: {
+					files: ['js/main.js'],
+					tasks: ['uglify:dist'],
+					options: {
+						livereload: true,
+					},
+				},
 
-			/* watch our files for change, reload */
-			livereload: {
-				files: ['*.html', '*.php', 'styles/*.css', 'images/**/*.{png,jpg,jpeg,gif,webp,svg}', '*.js'],
-				options: {
-					livereload: true
+				/* watch our files for change, reload */
+				livereload: {
+					files: ['*.html', '*.php', 'styles/*.css', 'images/**/*.{png,jpg,jpeg,gif,webp,svg}', '*.js'],
+					options: {
+						livereload: true
+					},
 				},
 			},
-		},
 
-	});
+		});
 
 	//Task list
 	grunt.registerTask('initiate', ['copy', 'uglify:initiate']);
