@@ -12,3 +12,5 @@ A simple scaffolding template to initialize projects.
 	- watch
 	- concat
 	- modernizr
+	- imagemin
+	- htmlmin
