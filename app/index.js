@@ -47,6 +47,10 @@ StarterGenerator.prototype.app = function app() {
   this.mkdir('sass/base');
   this.mkdir('sass/modules');
   this.mkdir('styles');
+  this.mkdir('dist');
+  this.mkdir('dist/js');
+  this.mkdir('dist/styles');
+  this.mkdir('dist/images');
 
   //JS files
   this.template('js/main.js', 'js/main.js');
@@ -71,6 +75,9 @@ StarterGenerator.prototype.app = function app() {
   this.template('_package.json', 'package.json');
   this.template('_bower.json', 'bower.json');
   this.template('_config.json', 'config.json');
+
+  //Dist files
+  this.template('dist/index.html', 'dist/index.html');
 };
 
 StarterGenerator.prototype.projectfiles = function projectfiles() {

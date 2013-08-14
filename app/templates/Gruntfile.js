@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 					style: 'compressed'
 				},
 				files: {
-					'styles/main.css': 'sass/main.scss'
+					'dist/styles/main.css': 'sass/main.scss'
 				},
 			}
 		},
@@ -31,9 +31,14 @@ module.exports = function (grunt) {
 			options: {
 				browsers: ['last 2 versions']
 			},
-			dist: {
+			dev: {
 				files: [
 					{ src: ['styles/main.css'], dest: 'styles/main.css' }
+				]
+			},
+			dist: {
+				files: [
+					{ src: ['styles/main.css'], dest: 'dist/styles/main.css' }
 				]
 			},
 		},
@@ -42,7 +47,7 @@ module.exports = function (grunt) {
 
 		modernizr: {
 			"devFile" : "components/modernizr/modernizr.js",
-			"outputFile" : "js/vendor/modernizr.js",
+			"outputFile" : "dist/js/vendor/modernizr.js",
 			"extra" : {
 		        "shiv" : true,
 		        "printshiv" : false,
@@ -69,16 +74,20 @@ module.exports = function (grunt) {
 				[
 					{
 						src: ['js/main.js'],
-						dest: 'js/main.js'
+						dest: 'dis/js/main.min.js'
 					}
 				]
 			},
 		},
 
 		concat : {
+			dev : {
+				src : ['js/plugins/*.js', 'js/main.js'],
+				dest : 'js/main.js'
+			},
 			dist : {
 				src : ['js/plugins/*.js', 'js/main.js'],
-				dest : 'js/main.min.js'
+				dest : 'dist/js/main.js'
 			},
 		},
 
@@ -91,7 +100,7 @@ module.exports = function (grunt) {
 						expand: true,
 						cwd: 'components/jquery/',
 						src: ['jquery.min.js'],
-						dest: 'js/vendor/'
+						dest: 'dist/js/vendor/'
 					}
 				]
 			},
@@ -101,14 +110,12 @@ module.exports = function (grunt) {
 				/* watch to see if the sass files are changed, compile and add prefixes */
 				styles: {
 					files: ['sass/**/*.{scss,sass}'],
-					tasks: ['sass:dev', 'autoprefixer']
+					tasks: ['sass:dev', 'autoprefixer:dev']
 				},
-
-				/* watch and see if our javascript files change, or new packages are installed */
 
 				concatenate: {
 					files: ['js/plugins/*.js', 'js/main.js'],
-					tasks: ['concat:dist'],
+					tasks: ['concat:dev'],
 					options: {
 						livereload: true,
 					},
@@ -122,10 +129,9 @@ module.exports = function (grunt) {
 					},
 				},
 			},
-
 		});
 
 	//Task list
-	grunt.registerTask('build', ['copy:dist', 'uglify:dist', 'sass:dist', 'modernizr']);
+	grunt.registerTask('build', ['copy:dist', 'uglify:dist', 'sass:dist', 'autoprefixer:dist', 'modernizr']);
 	grunt.registerTask('default', ['watch']);
 };
