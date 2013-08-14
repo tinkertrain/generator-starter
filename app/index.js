@@ -78,6 +78,11 @@ StarterGenerator.prototype.app = function app() {
 
   //Dist files
   this.template('dist/index.html', 'dist/index.html');
+  this.template('htaccess', 'dist/.htaccess');
+  this.template('crossdomain.xml', 'dist/crossdomain.xml');
+  this.template('humans.txt', 'dist/humans.txt');
+  this.template('README.md', 'dist/README.md');
+  this.template('robots.txt', 'dist/robots.txt');
 };
 
 StarterGenerator.prototype.projectfiles = function projectfiles() {
