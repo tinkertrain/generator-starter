@@ -6,7 +6,7 @@
     "yeoman-generator",
     "kickstart",
     "website",
-    "compass",
+    "sass",
     "livereload",
     "html5boilerplate"
   ],
