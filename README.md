@@ -58,12 +58,12 @@ The directory structure would then be:
 	README.md
 
 
-After that run, to watch for changes and compile sass, autoprefix the css, livereload
+After that to watch for changes and compile sass, autoprefix the css, and live reload, run:
 
 	~ grunt watch
 
 
-To build the project (uglify, concat, build a custom modernizr)
+To build the project (uglify, concat, build a custom modernizr, compress css)
 
 	~ grunt build
 
