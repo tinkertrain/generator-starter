@@ -14,6 +14,8 @@ The scaffolding includes the following:
 - Uglify
 - Concat
 - Livereload
+- Image optimization
+- HTML minification
 - Zurb Foundation's grid system
 
 Install it running
@@ -63,7 +65,7 @@ After that to watch for changes and compile sass, autoprefix the css, and live r
 	~ grunt watch
 
 
-To build the project (uglify, concat, build a custom modernizr, compress css)
+To build the project (uglify, concat, build a custom modernizr, compress css, htmlmin, imagemin)
 
 	~ grunt build
 
