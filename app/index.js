@@ -62,7 +62,6 @@ StarterGenerator.prototype.app = function app() {
   this.template('gitattributes', '.gitattributes');
   this.template('gitignore', '.gitignore');
   this.template('htaccess', '.htaccess');
-  this.template('config.rb', 'config.rb');
   this.template('crossdomain.xml', 'crossdomain.xml');
   this.template('humans.txt', 'humans.txt');
   this.template('README.md', 'README.md');
