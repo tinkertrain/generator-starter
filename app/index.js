@@ -77,7 +77,6 @@ StarterGenerator.prototype.app = function app() {
   this.template('_config.json', 'config.json');
 
   //Dist files
-  this.template('dist/index.html', 'dist/index.html');
   this.template('htaccess', 'dist/.htaccess');
   this.template('crossdomain.xml', 'dist/crossdomain.xml');
   this.template('humans.txt', 'dist/humans.txt');

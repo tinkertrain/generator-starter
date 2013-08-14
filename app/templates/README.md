@@ -10,7 +10,9 @@ A simple scaffolding template to initialize projects.
 	- uglify
 	- autoprefixer
 	- watch
+	- clean
 	- concat
 	- modernizr
 	- imagemin
 	- htmlmin
+	- usemin

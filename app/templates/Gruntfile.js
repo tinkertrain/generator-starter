@@ -75,7 +75,7 @@ module.exports = function (grunt) {
 				files:
 				[
 					{
-						src: ['js/main.js'],
+						src: ['dist/js/main.js'],
 						dest: 'dist/js/main.min.js'
 					}
 				]
@@ -83,10 +83,6 @@ module.exports = function (grunt) {
 		},
 
 		concat : {
-			dev : {
-				src : ['js/plugins/*.js', 'js/main.js'],
-				dest : 'js/main.js'
-			},
 			dist : {
 				src : ['js/plugins/*.js', 'js/main.js'],
 				dest : 'dist/js/main.js'
@@ -94,6 +90,22 @@ module.exports = function (grunt) {
 		},
 
 		//Process html
+		useminPrepare: {
+		  html: 'dist/index.html',
+		  options: {
+		  	uglify: 'uglify'
+		  },
+		},
+
+		//clean dist folders
+		clean: {
+			dist: ['dist/js/*', 'dist/images/*', 'dist/styles/*', 'dist/index.html']
+		},
+
+		usemin: {
+		  html: 'dist/index.html'
+		},
+
 		htmlmin: {
 		        dist: {
 		            options: {
@@ -153,6 +165,12 @@ module.exports = function (grunt) {
 						cwd: 'components/jquery/',
 						src: ['jquery.min.js'],
 						dest: 'dist/js/vendor/'
+					},
+					{
+						expand: true,
+						cwd: './',
+						src: ['index.html'],
+						dest: 'dist/'
 					}
 				]
 			},
@@ -162,14 +180,6 @@ module.exports = function (grunt) {
 				styles: {
 					files: ['sass/**/*.{scss,sass}'],
 					tasks: ['sass:dev', 'autoprefixer:dev']
-				},
-
-				concatenate: {
-					files: ['js/plugins/*.js', 'js/main.js'],
-					tasks: ['concat:dev'],
-					options: {
-						livereload: true,
-					},
 				},
 
 				/* watch our files for change, reload */
@@ -183,6 +193,6 @@ module.exports = function (grunt) {
 		});
 
 	//Task list
-	grunt.registerTask('build', ['copy:dist', 'uglify:dist', 'sass:dist', 'autoprefixer:dist', 'modernizr', 'htmlmin:dist', 'imagemin']);
+	grunt.registerTask('build', ['clean','copy:dist', 'sass:dist', 'autoprefixer:dist', 'modernizr', 'concat:dist', 'uglify:dist', 'useminPrepare', 'usemin', 'htmlmin:dist', 'imagemin']);
 	grunt.registerTask('default', ['watch']);
 };
