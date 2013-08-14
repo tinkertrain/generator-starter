@@ -11,7 +11,9 @@ module.exports = function (grunt) {
 		sass: {
 			dev: {
 				options: {
-					style: 'expanded'
+					style: 'expanded',
+					debugInfo: true,
+          lineNumbers: true
 				},
 				files: {
 					'styles/main.css': 'sass/main.scss'
@@ -181,8 +183,6 @@ module.exports = function (grunt) {
 		});
 
 	//Task list
-	grunt.registerTask('imagemin', ['imagemin']);
-	grunt.registerTask('build', ['copy:dist', 'uglify:dist', 'sass:dist', 'autoprefixer:dist', 'modernizr', 'htmlmin:dist']);
+	grunt.registerTask('build', ['copy:dist', 'uglify:dist', 'sass:dist', 'autoprefixer:dist', 'modernizr', 'htmlmin:dist', 'imagemin']);
 	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('htmlmin', ['htmlmin:dist']);
 };
