@@ -30,6 +30,13 @@ And then to use simply type in the command line:
 The directory structure would then be:
 
 	project_folder
+		|_ dist
+			|_ images //optimized images
+			|_ styles
+					main.css //compressed styles
+			|_js
+					main.min.js //concatenated and uglified js
+				index.html //minified html
 		|_ components //bower installed components
 		|_ node_modules //gruntjs plugins
 		|_ images
