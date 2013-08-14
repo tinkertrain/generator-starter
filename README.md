@@ -77,9 +77,3 @@ To build the project (uglify, concat, build a custom modernizr, compress css, ht
 	~ grunt build
 
 If this is in any way useful to you, use it in any way you want.
-
-
-To do:
-------
-
-- Separate development environment (by building into a 'dist' folder)
