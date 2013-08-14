@@ -74,7 +74,7 @@ module.exports = function (grunt) {
 				[
 					{
 						src: ['js/main.js'],
-						dest: 'dis/js/main.min.js'
+						dest: 'dist/js/main.min.js'
 					}
 				]
 			},
@@ -91,6 +91,56 @@ module.exports = function (grunt) {
 			},
 		},
 
+		//Process html
+		htmlmin: {
+		        dist: {
+		            options: {
+		                removeComments: true,
+		                collapseWhitespace: true,
+		                removeEmptyAttributes: true,
+		                removeCommentsFromCDATA: true,
+		                removeRedundantAttributes: true,
+		                collapseBooleanAttributes: true
+		            },
+		            files: {
+		                // Destination : Source
+		                './dist/index.html': './dist/index.html'
+		            }
+		        }
+		    },
+
+		//Process images
+		imagemin: {
+		    png: {
+		      options: {
+		        optimizationLevel: 7
+		      },
+		      files: [
+		        {
+		          expand: true,
+		          cwd: 'images/',
+		          src: ['**/*.png'],
+		          dest: 'dist/images/',
+		          ext: '.png'
+		        }
+		      ]
+		    },
+		    jpg: {
+		      options: {
+		        progressive: true
+		      },
+		      files: [
+		        {
+		          expand: true,
+		          cwd: 'images/',
+		          src: ['**/*.jpg'],
+		          dest: 'dist/images/',
+		          ext: '.jpg'
+		        }
+		      ]
+		    }
+		  },
+
 		//copy files from components to js
 		copy: {
 			dist: {
@@ -105,7 +155,6 @@ module.exports = function (grunt) {
 				]
 			},
 		},
-
 		watch: {
 				/* watch to see if the sass files are changed, compile and add prefixes */
 				styles: {
@@ -132,6 +181,8 @@ module.exports = function (grunt) {
 		});
 
 	//Task list
-	grunt.registerTask('build', ['copy:dist', 'uglify:dist', 'sass:dist', 'autoprefixer:dist', 'modernizr']);
+	grunt.registerTask('imagemin', ['imagemin']);
+	grunt.registerTask('build', ['copy:dist', 'uglify:dist', 'sass:dist', 'autoprefixer:dist', 'modernizr', 'htmlmin:dist']);
 	grunt.registerTask('default', ['watch']);
+	grunt.registerTask('htmlmin', ['htmlmin:dist']);
 };
