@@ -7,22 +7,24 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
-		//Process CSS
-		compass: {
+		//Process CSS (sass and autoprefixer)
+		sass: {
 			dev: {
 				options: {
-					config: 'config.rb',
-					force: true
-				}
+					style: 'expanded'
+				},
+				files: {
+					'styles/main.css': 'sass/main.scss'
+				},
 			},
 			dist: {
 				options: {
-					outputStyle: 'compressed',
-					environment: 'production',
-					noLineComments: true,
-					force: true
-				}
-			},
+					style: 'compressed'
+				},
+				files: {
+					'styles/main.css': 'sass/main.scss'
+				},
+			}
 		},
 
 		autoprefixer: {
@@ -37,22 +39,37 @@ module.exports = function (grunt) {
 		},
 
 		//Process Javascript
+
+		modernizr: {
+			"devFile" : "components/modernizr/modernizr.js",
+			"outputFile" : "js/vendor/modernizr.js",
+			"extra" : {
+		        "shiv" : true,
+		        "printshiv" : false,
+		        "load" : true,
+		        "mq" : false,
+		        "cssclasses" : true
+			    },
+	    "extensibility" : {
+        "addtest" : false,
+        "prefixed" : false,
+        "teststyles" : false,
+        "testprops" : false,
+        "testallprops" : false,
+        "hasevents" : false,
+        "prefixes" : false,
+        "domprefixes" : false
+      },
+      "uglify" : true
+		},
+
 		uglify: {
-			initiate: {
-				files:
-				[
-					{
-						src: ['components/modernizr/modernizr.js'],
-						dest: 'js/vendor/modernizr.min.js'
-					}
-				]
-			},
 			dist: {
 				files:
 				[
 					{
-						src: ['js/main.min.js'],
-						dest: 'js/main.min.js'
+						src: ['js/main.js'],
+						dest: 'js/main.js'
 					}
 				]
 			},
@@ -67,7 +84,7 @@ module.exports = function (grunt) {
 
 		//copy files from components to js
 		copy: {
-			initiate: {
+			dist: {
 				files:
 				[
 					{
@@ -75,37 +92,6 @@ module.exports = function (grunt) {
 						cwd: 'components/jquery/',
 						src: ['jquery.min.js'],
 						dest: 'js/vendor/'
-					},
-					{
-						expand: true,
-						cwd: 'components/normalize.scss/',
-						src: ['_normalize.scss'],
-						dest: 'sass/base/'
-					},
-					//Foundation
-					{
-						expand: true,
-						cwd: 'components/foundation/scss/foundation/',
-						src: ['_variables.scss'],
-						dest: 'sass/vendor/foundation/'
-					},
-					{
-						expand: true,
-						cwd: 'components/foundation/scss/foundation/components/',
-						src: ['_global.scss'],
-						dest: 'sass/vendor/foundation/components/'
-					},
-					{
-						expand: true,
-						cwd: 'components/foundation/scss/foundation/components/',
-						src: ['_grid.scss'],
-						dest: 'sass/vendor/foundation/components/'
-					},
-					{
-						expand: true,
-						cwd: 'components/foundation/scss/foundation/components/',
-						src: ['_visibility.scss'],
-						dest: 'sass/vendor/foundation/components/'
 					}
 				]
 			},
@@ -115,13 +101,8 @@ module.exports = function (grunt) {
 				/* watch to see if the sass files are changed, compile and add prefixes */
 				styles: {
 					files: ['sass/**/*.{scss,sass}'],
-					tasks: ['compass:dev', 'autoprefixer']
+					tasks: ['sass:dev', 'autoprefixer']
 				},
-
-				// autoprefix: {
-				//   files: ['styles/main.css'],
-				//   tasks: ['autoprefixer']
-				// },
 
 				/* watch and see if our javascript files change, or new packages are installed */
 
@@ -145,7 +126,6 @@ module.exports = function (grunt) {
 		});
 
 	//Task list
-	grunt.registerTask('initiate', ['copy', 'uglify:initiate']);
-	grunt.registerTask('build', ['uglify:dist', 'compass:dist']);
+	grunt.registerTask('build', ['copy:dist', 'uglify:dist', 'sass:dist', 'modernizr']);
 	grunt.registerTask('default', ['watch']);
 };

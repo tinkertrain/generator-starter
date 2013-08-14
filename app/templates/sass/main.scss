@@ -1,27 +1,31 @@
-//=================
-// Compass
-//=================
+/* ==========================================================================
+   VENDOR STYLES
+   ========================================================================== */
 
-@import "compass/css3";
-@import "compass/utilities";
+/*
+   Normalize
+   ========================================================================== */
 
-//=================
-// Base Styles
-//=================
+@import "../components/foundation/scss/normalize.scss";
 
-@import "base/normalize";
+/*
+   Foundation
+   ========================================================================== */
+
+@import "../components/foundation/scss/foundation/variables";
+@import "../components/foundation/scss/foundation/components/global";
+@import "../components/foundation/scss/foundation/components/grid";
+@import "../components/foundation/scss/foundation/components/visibility";
+
+
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
+
 @import "base/palette";
 @import "base/fonts";
 @import "base/mymixins";
-@import "base/typography";
 
-//=================
-// Vendor Styles
-//=================
-
-//Bring the grid system from Zurb Foundation
-@import "vendor/foundation";
-
-//=================
-// Modules Styles
-//=================
+/* ==========================================================================
+   MODULES STYLES
+   ========================================================================== */
