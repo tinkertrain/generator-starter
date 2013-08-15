@@ -12,7 +12,6 @@ module.exports = function (grunt) {
 			dev: {
 				options: {
 					style: 'expanded',
-					debugInfo: true,
           lineNumbers: true
 				},
 				files: {
@@ -91,7 +90,7 @@ module.exports = function (grunt) {
 
 		//Process html
 		useminPrepare: {
-		  html: 'src/dist/index.html',
+		  html: 'dist/index.html',
 		  options: {
 		  	uglify: 'uglify'
 		  },
@@ -168,8 +167,8 @@ module.exports = function (grunt) {
 					},
 					{
 						expand: true,
-						cwd: './',
-						src: ['src/index.html'],
+						cwd: 'src',
+						src: ['index.html'],
 						dest: 'dist/'
 					}
 				]
