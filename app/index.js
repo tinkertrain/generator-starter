@@ -11,7 +11,7 @@ var StarterGenerator = module.exports = function StarterGenerator(args, options,
     this.installDependencies({ skipInstall: options['skip-install'] });
   });
 
-  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../src/package.json')));
+  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
 util.inherits(StarterGenerator, yeoman.generators.Base);
