@@ -37,7 +37,6 @@ StarterGenerator.prototype.askFor = function askFor() {
 };
 
 StarterGenerator.prototype.app = function app() {
-  this.mkdir('components');
   this.mkdir('src');
   this.mkdir('src/images');
   this.mkdir('src/js');

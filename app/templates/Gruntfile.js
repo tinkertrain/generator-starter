@@ -16,7 +16,7 @@ module.exports = function (grunt) {
           lineNumbers: true
 				},
 				files: {
-					'styles/main.css': 'sass/main.scss'
+					'src/styles/main.css': 'src/sass/main.scss'
 				},
 			},
 			dist: {
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 					style: 'compressed'
 				},
 				files: {
-					'dist/styles/main.css': 'sass/main.scss'
+					'dist/styles/main.css': 'src/sass/main.scss'
 				},
 			}
 		},
@@ -35,12 +35,12 @@ module.exports = function (grunt) {
 			},
 			dev: {
 				files: [
-					{ src: ['styles/main.css'], dest: 'styles/main.css' }
+					{ src: ['src/styles/main.css'], dest: 'src/styles/main.css' }
 				]
 			},
 			dist: {
 				files: [
-					{ src: ['styles/main.css'], dest: 'dist/styles/main.css' }
+					{ src: ['src/styles/main.css'], dest: 'dist/styles/main.css' }
 				]
 			},
 		},
@@ -48,7 +48,7 @@ module.exports = function (grunt) {
 		//Process Javascript
 
 		modernizr: {
-			"devFile" : "components/modernizr/modernizr.js",
+			"devFile" : "src/components/modernizr/modernizr.js",
 			"outputFile" : "dist/js/vendor/modernizr.js",
 			"extra" : {
 		        "shiv" : true,
@@ -84,14 +84,14 @@ module.exports = function (grunt) {
 
 		concat : {
 			dist : {
-				src : ['js/plugins/*.js', 'js/main.js'],
+				src : ['src/js/plugins/*.js', 'src/js/main.js'],
 				dest : 'dist/js/main.js'
 			},
 		},
 
 		//Process html
 		useminPrepare: {
-		  html: 'dist/index.html',
+		  html: 'src/dist/index.html',
 		  options: {
 		  	uglify: 'uglify'
 		  },
@@ -118,7 +118,7 @@ module.exports = function (grunt) {
 		            },
 		            files: {
 		                // Destination : Source
-		                './dist/index.html': './dist/index.html'
+		                'dist/index.html': 'dist/index.html'
 		            }
 		        }
 		    },
@@ -132,7 +132,7 @@ module.exports = function (grunt) {
 		      files: [
 		        {
 		          expand: true,
-		          cwd: 'images/',
+		          cwd: 'src/images/',
 		          src: ['**/*.png'],
 		          dest: 'dist/images/',
 		          ext: '.png'
@@ -146,7 +146,7 @@ module.exports = function (grunt) {
 		      files: [
 		        {
 		          expand: true,
-		          cwd: 'images/',
+		          cwd: 'src/images/',
 		          src: ['**/*.jpg'],
 		          dest: 'dist/images/',
 		          ext: '.jpg'
@@ -162,14 +162,14 @@ module.exports = function (grunt) {
 				[
 					{
 						expand: true,
-						cwd: 'components/jquery/',
+						cwd: 'src/components/jquery/',
 						src: ['jquery.min.js'],
 						dest: 'dist/js/vendor/'
 					},
 					{
 						expand: true,
 						cwd: './',
-						src: ['index.html'],
+						src: ['src/index.html'],
 						dest: 'dist/'
 					}
 				]
@@ -178,13 +178,13 @@ module.exports = function (grunt) {
 		watch: {
 				/* watch to see if the sass files are changed, compile and add prefixes */
 				styles: {
-					files: ['sass/**/*.{scss,sass}'],
+					files: ['src/sass/**/*.{scss,sass}'],
 					tasks: ['sass:dev', 'autoprefixer:dev']
 				},
 
 				/* watch our files for change, reload */
 				livereload: {
-					files: ['*.html', '*.php', 'styles/*.css', 'images/**/*.{png,jpg,jpeg,gif,webp,svg}', '*.js'],
+					files: ['src/*.html', 'src/*.php', 'src/styles/*.css', 'src/images/**/*.{png,jpg,jpeg,gif,webp,svg}', 'src/*.js'],
 					options: {
 						livereload: true
 					},
