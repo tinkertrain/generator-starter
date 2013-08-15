@@ -36,7 +36,7 @@ The directory structure would then be:
 					main.css //compressed styles
 			|_js
 					main.min.js //concatenated and uglified js
-				index.html //minified html
+			index.html //minified html
 		|_ components //bower installed components
 		|_ node_modules //gruntjs plugins
 		|_ images

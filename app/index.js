@@ -38,50 +38,51 @@ StarterGenerator.prototype.askFor = function askFor() {
 
 StarterGenerator.prototype.app = function app() {
   this.mkdir('components');
-  this.mkdir('images');
-  this.mkdir('js');
-  this.mkdir('js/plugins');
-  this.mkdir('js/vendor');
-  this.mkdir('sass');
-  this.mkdir('sass/vendor');
-  this.mkdir('sass/base');
-  this.mkdir('sass/modules');
-  this.mkdir('styles');
+  this.mkdir('src');
+  this.mkdir('src/images');
+  this.mkdir('src/js');
+  this.mkdir('src/js/plugins');
+  this.mkdir('src/js/vendor');
+  this.mkdir('src/sass');
+  this.mkdir('src/sass/vendor');
+  this.mkdir('src/sass/base');
+  this.mkdir('src/sass/modules');
+  this.mkdir('src/styles');
   this.mkdir('dist');
   this.mkdir('dist/js');
   this.mkdir('dist/styles');
   this.mkdir('dist/images');
 
   //JS files
-  this.template('js/main.js', 'js/main.js');
+  this.template('src/js/main.js', 'src/js/main.js');
 
   //SASS files
-  this.template('sass/base/_fonts.scss', 'sass/base/_fonts.scss');
-  this.template('sass/base/_mymixins.scss', 'sass/base/_mymixins.scss');
-  this.template('sass/base/_palette.scss', 'sass/base/_palette.scss');
-  this.template('sass/main.scss', 'sass/main.scss');
+  this.template('src/sass/base/_fonts.scss', 'src/sass/base/_fonts.scss');
+  this.template('src/sass/base/_mymixins.scss', 'src/sass/base/_mymixins.scss');
+  this.template('src/sass/base/_palette.scss', 'src/sass/base/_palette.scss');
+  this.template('src/sass/main.scss', 'src/sass/main.scss');
 
   //Root files
-  this.template('index.html', 'index.html');
-  this.template('gitattributes', '.gitattributes');
-  this.template('gitignore', '.gitignore');
-  this.template('htaccess', '.htaccess');
-  this.template('crossdomain.xml', 'crossdomain.xml');
-  this.template('humans.txt', 'humans.txt');
-  this.template('README.md', 'README.md');
-  this.template('robots.txt', 'robots.txt');
+  this.template('src/index.html', 'src/index.html');
+  this.template('src/gitattributes', 'src/.gitattributes');
+  this.template('src/gitignore', 'src/.gitignore');
+  this.template('src/htaccess', 'src/.htaccess');
+  this.template('src/crossdomain.xml', 'src/crossdomain.xml');
+  this.template('src/humans.txt', 'src/humans.txt');
+  this.template('src/README.md', 'src/README.md');
+  this.template('src/robots.txt', 'src/robots.txt');
 
-  this.template('Gruntfile.js', 'Gruntfile.js');
-  this.template('_package.json', 'package.json');
-  this.template('_bower.json', 'bower.json');
-  this.template('_config.json', 'config.json');
+  this.template('src/Gruntfile.js', 'src/Gruntfile.js');
+  this.template('src/_package.json', 'src/package.json');
+  this.template('src/_bower.json', 'src/bower.json');
+  this.template('src/_config.json', 'src/config.json');
 
   //Dist files
-  this.template('htaccess', 'dist/.htaccess');
-  this.template('crossdomain.xml', 'dist/crossdomain.xml');
-  this.template('humans.txt', 'dist/humans.txt');
-  this.template('README.md', 'dist/README.md');
-  this.template('robots.txt', 'dist/robots.txt');
+  this.template('src/htaccess', 'dist/.htaccess');
+  this.template('src/crossdomain.xml', 'dist/crossdomain.xml');
+  this.template('src/humans.txt', 'dist/humans.txt');
+  this.template('src/README.md', 'dist/README.md');
+  this.template('src/robots.txt', 'dist/robots.txt');
 };
 
 StarterGenerator.prototype.projectfiles = function projectfiles() {
