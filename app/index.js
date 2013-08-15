@@ -72,10 +72,10 @@ StarterGenerator.prototype.app = function app() {
   this.template('src/README.md', 'src/README.md');
   this.template('src/robots.txt', 'src/robots.txt');
 
-  this.template('src/Gruntfile.js', 'src/Gruntfile.js');
-  this.template('src/_package.json', 'src/package.json');
-  this.template('src/_bower.json', 'src/bower.json');
-  this.template('src/_config.json', 'src/config.json');
+  this.template('Gruntfile.js', 'Gruntfile.js');
+  this.template('_package.json', 'package.json');
+  this.template('_bower.json', 'bower.json');
+  this.template('_config.json', 'config.json');
 
   //Dist files
   this.template('src/htaccess', 'dist/.htaccess');
