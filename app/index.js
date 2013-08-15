@@ -75,6 +75,7 @@ StarterGenerator.prototype.app = function app() {
   this.template('Gruntfile.js', 'Gruntfile.js');
   this.template('_package.json', 'package.json');
   this.template('_bower.json', 'bower.json');
+  this.template('_bowerrc', '.bowerrc');
   this.template('_config.json', 'config.json');
 
   //Dist files
