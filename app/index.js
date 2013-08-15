@@ -81,7 +81,6 @@ StarterGenerator.prototype.app = function app() {
   this.template('src/htaccess', 'dist/.htaccess');
   this.template('src/crossdomain.xml', 'dist/crossdomain.xml');
   this.template('src/humans.txt', 'dist/humans.txt');
-  this.template('src/README.md', 'dist/README.md');
   this.template('src/robots.txt', 'dist/robots.txt');
 };
 
