@@ -2,7 +2,6 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
 
 var StarterGenerator = module.exports = function StarterGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
